@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.card {
+  width: 300px;
+}
+
+.card2 {
+  padding: 30px;
+  width: 600px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  &_better {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+}
+
+.mar{
+  margin: 10px auto;
+}
