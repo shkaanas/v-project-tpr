@@ -30,7 +30,9 @@ function Matrix({ x, y }) {
   const handleChange = (value) => setValue(value);
 
   const [matrix, setMatrix] = useState(() => {
-    const initialMatrix = Array.from({ length: x }, () => Array(y).fill(0));
+    const initialMatrix = Array.from({ length: x }, () =>
+      Array(y).fill(Number.NEGATIVE_INFINITY)
+    );
     return initialMatrix;
   });
 
@@ -318,7 +320,7 @@ function Matrix({ x, y }) {
                           ))}
 
                           <p pt="2" fontSize="md">
-                            Максимальне значення: {overallBayes}
+                            MAX: {overallBayes}
                           </p>
                         </div>
 
@@ -333,7 +335,7 @@ function Matrix({ x, y }) {
                           ))}
 
                           <p pt="2" fontSize="md">
-                            Мінімальне значення: {overallDispersion}
+                            MIN: {overallDispersion}
                           </p>
                         </div>
 
@@ -349,8 +351,8 @@ function Matrix({ x, y }) {
                             value={value2}
                             onChange={handleChange2}
                           >
-                            <SliderTrack>
-                              <SliderFilledTrack />
+                            <SliderTrack bg="gray.50">
+                              <SliderFilledTrack bg="gray.500" />
                             </SliderTrack>
                             <SliderThumb
                               fontSize="md"
@@ -365,7 +367,7 @@ function Matrix({ x, y }) {
                           ))}
 
                           <p pt="2" fontSize="md">
-                            Максимальне значення: {overallProb}
+                            MAX: {overallProb}
                           </p>
                         </div>
 
@@ -392,8 +394,7 @@ function Matrix({ x, y }) {
                               ))}
 
                               <p pt="2" fontSize="md">
-                                Максимальне значення:{' '}
-                                {Math.max(...columnValuesInMatrix)}
+                                MAX: {Math.max(...columnValuesInMatrix)}
                               </p>
                             </>
                           )}
@@ -416,7 +417,7 @@ function Matrix({ x, y }) {
                         </p>
                       ))}
                       <p pt="2" fontSize="md">
-                        Максимальне значення: {overallMaximax}
+                        MAX: {overallMaximax}
                       </p>
                     </div>
 
@@ -430,7 +431,7 @@ function Matrix({ x, y }) {
                         </p>
                       ))}
                       <p pt="2" fontSize="md">
-                        Максимум з мінімумів: {overallMinimax}
+                        MAX: {overallMinimax}
                       </p>
                       {maximaxes.map((max, index) => (
                         <p pt="2" fontSize="md" key={index}>
@@ -438,7 +439,7 @@ function Matrix({ x, y }) {
                         </p>
                       ))}
                       <p pt="2" fontSize="md">
-                        Мінімум з максимусів: {overallMin}
+                        MIN: {overallMin}
                       </p>
                     </div>
 
@@ -455,8 +456,8 @@ function Matrix({ x, y }) {
                         value={value}
                         onChange={handleChange}
                       >
-                        <SliderTrack>
-                          <SliderFilledTrack />
+                        <SliderTrack bg="gray.50">
+                          <SliderFilledTrack bg="gray.500" />
                         </SliderTrack>
                         <SliderThumb
                           fontSize="md"
@@ -470,7 +471,7 @@ function Matrix({ x, y }) {
                         </p>
                       ))}
                       <p pt="2" fontSize="md">
-                        Максимальне значення: {overallHur}
+                        MAX: {overallHur}
                       </p>
                     </div>
 
@@ -492,7 +493,7 @@ function Matrix({ x, y }) {
                         </Table>
                       </TableContainer>
                       <p pt="2" fontSize="md">
-                        Мінімальне значення: {overallSev}
+                        MIN: {overallSev}
                       </p>
                     </div>
                   </CardBody>
